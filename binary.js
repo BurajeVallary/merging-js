@@ -14,50 +14,50 @@ let num = [45, 12, 6, 89, 2, 5];
 let target = 6;
 
 
-function mergeSort(arr) {
-  if (arr.length <= 1) {
-    return arr;
+function mergeSort(why) {
+  if (why.length <= 1) {
+    return why;
   }
 
-  const mid = Math.floor(arr.length / 2);
-  const left = arr.slice(0, mid);
-  const right = arr.slice(mid);
+  const middle = Math.floor(why.length / 2);
+  const left = why.slice(0, middle);
+  const right = why.slice(middle);
 
   return merge(mergeSort(left), mergeSort(right));
 }
 
 function merge(left, right) {
   let result = [];
-  let i = 0;
-  let j = 0;
+  let a = 0;
+  let b = 0;
 
-  while (i < left.length && j < right.length) {
-    if (left[i] < right[j]) {
-      result.push(left[i]);
-      i++;
+  while (a < left.length && b < right.length) {
+    if (left[a] < right[b]) {
+      result.push(left[a]);
+      a++;
     } else {
-      result.push(right[j]);
-      j++;
+      result.push(right[b]);
+      b++;
     }
   }
 
-  return result.concat(left.slice(i)).concat(right.slice(j));
+  return result.concat(left.slice(a)).concat(right.slice(b));
 }
 
 
 function binarySearch(arr, target) {
-  let low = 0;
-  let high = arr.length - 1;
+  let c = 0;
+  let d = arr.length - 1;
 
-  while (low <= high) {
-    let mid = Math.floor((low + high) / 2);
+  while (c <= d) {
+    let middle = Math.floor((c +d) / 2);
 
-    if (arr[mid] === target) {
-      return mid;
-    } else if (arr[mid] < target) {
-      low = mid + 1;
+    if (arr[middle] === target) {
+      return middle;
+    } else if (arr[middle] < target) {
+      c = middle + 1;
     } else {
-      high = mid - 1;
+      d = middle - 1;
     }
   }
 
@@ -115,7 +115,7 @@ function mergeSortDescending(array) {
 //let target = 34
 //let arr2 = [1,4,78,2,67,3];
 
-function searchUsingMergeSort(target, array) {
+function search(target, array) {
     const sortedArray = mergeSort(array);
     let low = 0;
     let high = sortedArray.length - 1;
@@ -168,7 +168,7 @@ function searchUsingMergeSort(target, array) {
   let take = 34;
   let arr2 = [1, 4, 78, 2, 67, 3];
   
-  const result = searchUsingMergeSort(take, arr2);
+  const result = search(take, arr2);
   
   console.log(result);
 
